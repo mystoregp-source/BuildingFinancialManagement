@@ -1,0 +1,48 @@
+{
+  "name": "مدیریت ساختمان",
+  "short_name": "مدیریت ساختمان",
+  "description": "نرم‌افزار مدیریت هزینه‌های ساختمان با قابلیت محاسبه سهم واحدها، آرشیو قبوض و مدیریت پرداختی‌ها",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f0f7ff",
+  "theme_color": "#64b5f6",
+  "orientation": "portrait-primary",
+  "scope": ".",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "finance", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "محاسبه قبض جدید",
+      "short_name": "محاسبه",
+      "description": "شروع محاسبه سهم واحدها",
+      "url": "./index.html#residents",
+      "icons": []
+    },
+    {
+      "name": "آرشیو قبوض",
+      "short_name": "آرشیو",
+      "description": "مشاهده آرشیو دوره‌های قبلی",
+      "url": "./index.html?tab=archive",
+      "icons": []
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "protocol_handlers": []
+}
