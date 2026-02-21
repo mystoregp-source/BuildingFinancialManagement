@@ -6545,11 +6545,13 @@ window.viewArchiveDetails = function(recordId) {
                 });
             }
 
-            // ==================== بارگذاری اولیه ====================
+                // ==================== بارگذاری اولیه ====================
             setupNumberInputValidation();
             updateResidentsList();
             updateUnitReportFilter();
             updatePaymentsTable();
+            
+            // بارگذاری تنظیمات پیش‌فرض و اعمال روی فیلدها
             loadDefaultSettings();
             
             // اجرای تابع تنظیم عرض تب‌ها
@@ -6559,20 +6561,6 @@ window.viewArchiveDetails = function(recordId) {
             if (!localStorage.getItem('defaultMiscMethod')) {
                 localStorage.setItem('defaultMiscMethod', 'per_unit');
             }
-            
-            const defaultWaterMethod = localStorage.getItem('defaultWaterMethod') || 'per_resident';
-            const defaultElectricityMethod = localStorage.getItem('defaultElectricityMethod') || 'per_unit';
-            const defaultGasMethod = localStorage.getItem('defaultGasMethod') || 'per_area';
-            const defaultElevatorMethod = localStorage.getItem('defaultElevatorMethod') || 'per_unit';
-            const defaultCleaningMethod = localStorage.getItem('defaultCleaningMethod') || 'per_unit';
-            const defaultMiscMethod = localStorage.getItem('defaultMiscMethod') || 'per_unit';
-            
-            document.getElementById('waterMethod').value = defaultWaterMethod;
-            document.getElementById('electricityMethod').value = defaultElectricityMethod;
-            document.getElementById('gasMethod').value = defaultGasMethod;
-            document.getElementById('elevatorMethod').value = defaultElevatorMethod;
-            document.getElementById('cleaningMethod').value = defaultCleaningMethod;
-            document.getElementById('miscMethod').value = defaultMiscMethod;
             
             const today = new Date();
             const persianDate = gregorianToPersian(today);
