@@ -1,4 +1,4 @@
-// service-worker.js - برای نرم‌افزار مدیریت ساختمان
+// service-worker.js - سرویس ورکر برای نرم‌افزار مدیریت ساختمان
 
 const CACHE_NAME = 'building-management-' + new Date().getTime() + '-' + Math.random();
 
