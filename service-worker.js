@@ -13,6 +13,9 @@ const urlsToCache = [
 self.addEventListener('install', event => {
   console.log('🛠 Service Worker در حال نصب...');
   
+  // ✅ خط جدید ۱: اطمینان از نصب و فعال شدن نسخه جدید
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -31,6 +34,9 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   console.log('⚡ Service Worker فعال شد');
+  
+  // ✅ خط جدید ۲: گرفتن کنترل همه صفحات بلافاصله
+  self.clients.claim();
   
   event.waitUntil(
     caches.keys().then(cacheNames => {
