@@ -4583,59 +4583,68 @@ function gregorianToPersianSimple(date) {
                 document.getElementById('smsTemplate').value = defaultTemplate;
             });
 
-            // ==================== تنظیمات پیش‌فرض ====================
-            function loadDefaultSettings() {
-                const defaultWaterMethod = localStorage.getItem('defaultWaterMethod') || 'per_resident';
-                const defaultElectricityMethod = localStorage.getItem('defaultElectricityMethod') || 'per_unit';
-                const defaultGasMethod = localStorage.getItem('defaultGasMethod') || 'per_area';
-                const defaultElevatorMethod = localStorage.getItem('defaultElevatorMethod') || 'per_unit';
-                const defaultCleaningMethod = localStorage.getItem('defaultCleaningMethod') || 'per_unit';
-                const defaultMiscMethod = localStorage.getItem('defaultMiscMethod') || 'per_unit';
-                
-                document.getElementById('defaultWaterMethod').value = defaultWaterMethod;
-                document.getElementById('defaultElectricityMethod').value = defaultElectricityMethod;
-                document.getElementById('defaultGasMethod').value = defaultGasMethod;
-                document.getElementById('defaultElevatorMethod').value = defaultElevatorMethod;
-                document.getElementById('defaultCleaningMethod').value = defaultCleaningMethod;
-                document.getElementById('defaultMiscMethod').value = defaultMiscMethod;
-            }
-            
-            document.getElementById('saveDefaultsBtn').addEventListener('click', function() {
-                const defaultWaterMethod = document.getElementById('defaultWaterMethod').value;
-                const defaultElectricityMethod = document.getElementById('defaultElectricityMethod').value;
-                const defaultGasMethod = document.getElementById('defaultGasMethod').value;
-                const defaultElevatorMethod = document.getElementById('defaultElevatorMethod').value;
-                const defaultCleaningMethod = document.getElementById('defaultCleaningMethod').value;
-                const defaultMiscMethod = document.getElementById('defaultMiscMethod').value;
-                
-                localStorage.setItem('defaultWaterMethod', defaultWaterMethod);
-                localStorage.setItem('defaultElectricityMethod', defaultElectricityMethod);
-                localStorage.setItem('defaultGasMethod', defaultGasMethod);
-                localStorage.setItem('defaultElevatorMethod', defaultElevatorMethod);
-                localStorage.setItem('defaultCleaningMethod', defaultCleaningMethod);
-                localStorage.setItem('defaultMiscMethod', defaultMiscMethod);
-                
-                document.getElementById('waterMethod').value = defaultWaterMethod;
-                document.getElementById('electricityMethod').value = defaultElectricityMethod;
-                document.getElementById('gasMethod').value = defaultGasMethod;
-                document.getElementById('elevatorMethod').value = defaultElevatorMethod;
-                document.getElementById('cleaningMethod').value = defaultCleaningMethod;
-                document.getElementById('miscMethod').value = defaultMiscMethod;
-                
-                showNotification('تنظیمات پیش‌فرض ذخیره شد');
-                showSettingsPage('main');
-            });
-            
-            document.getElementById('resetDefaultsBtn').addEventListener('click', function() {
-                document.getElementById('defaultWaterMethod').value = 'per_resident';
-                document.getElementById('defaultElectricityMethod').value = 'per_unit';
-                document.getElementById('defaultGasMethod').value = 'per_area';
-                document.getElementById('defaultElevatorMethod').value = 'per_unit';
-                document.getElementById('defaultCleaningMethod').value = 'per_unit';
-                document.getElementById('defaultMiscMethod').value = 'per_unit';
-            });
+         // ==================== تنظیمات پیش‌فرض ====================
+function loadDefaultSettings() {
+    const defaultWaterMethod = localStorage.getItem('defaultWaterMethod') || 'per_resident';
+    const defaultElectricityMethod = localStorage.getItem('defaultElectricityMethod') || 'per_unit';
+    const defaultGasMethod = localStorage.getItem('defaultGasMethod') || 'per_area';
+    const defaultElevatorMethod = localStorage.getItem('defaultElevatorMethod') || 'per_unit';
+    const defaultCleaningMethod = localStorage.getItem('defaultCleaningMethod') || 'per_unit';
+    const defaultMiscMethod = localStorage.getItem('defaultMiscMethod') || 'per_unit';
+    
+    // اعمال به سلکتورهای صفحه تنظیمات
+    document.getElementById('defaultWaterMethod').value = defaultWaterMethod;
+    document.getElementById('defaultElectricityMethod').value = defaultElectricityMethod;
+    document.getElementById('defaultGasMethod').value = defaultGasMethod;
+    document.getElementById('defaultElevatorMethod').value = defaultElevatorMethod;
+    document.getElementById('defaultCleaningMethod').value = defaultCleaningMethod;
+    document.getElementById('defaultMiscMethod').value = defaultMiscMethod;
+    
+    // ✅ اعمال به سلکتورهای اصلی تب‌ها
+    document.getElementById('waterMethod').value = defaultWaterMethod;
+    document.getElementById('electricityMethod').value = defaultElectricityMethod;
+    document.getElementById('gasMethod').value = defaultGasMethod;
+    document.getElementById('elevatorMethod').value = defaultElevatorMethod;
+    document.getElementById('cleaningMethod').value = defaultCleaningMethod;
+    document.getElementById('miscMethod').value = defaultMiscMethod;
+}
 
-            // ==================== مدیریت پرداختی‌ها ====================
+document.getElementById('saveDefaultsBtn').addEventListener('click', function() {
+    const defaultWaterMethod = document.getElementById('defaultWaterMethod').value;
+    const defaultElectricityMethod = document.getElementById('defaultElectricityMethod').value;
+    const defaultGasMethod = document.getElementById('defaultGasMethod').value;
+    const defaultElevatorMethod = document.getElementById('defaultElevatorMethod').value;
+    const defaultCleaningMethod = document.getElementById('defaultCleaningMethod').value;
+    const defaultMiscMethod = document.getElementById('defaultMiscMethod').value;
+    
+    localStorage.setItem('defaultWaterMethod', defaultWaterMethod);
+    localStorage.setItem('defaultElectricityMethod', defaultElectricityMethod);
+    localStorage.setItem('defaultGasMethod', defaultGasMethod);
+    localStorage.setItem('defaultElevatorMethod', defaultElevatorMethod);
+    localStorage.setItem('defaultCleaningMethod', defaultCleaningMethod);
+    localStorage.setItem('defaultMiscMethod', defaultMiscMethod);
+    
+    document.getElementById('waterMethod').value = defaultWaterMethod;
+    document.getElementById('electricityMethod').value = defaultElectricityMethod;
+    document.getElementById('gasMethod').value = defaultGasMethod;
+    document.getElementById('elevatorMethod').value = defaultElevatorMethod;
+    document.getElementById('cleaningMethod').value = defaultCleaningMethod;
+    document.getElementById('miscMethod').value = defaultMiscMethod;
+    
+    showNotification('تنظیمات پیش‌فرض ذخیره شد');
+    showSettingsPage('main');
+});
+
+document.getElementById('resetDefaultsBtn').addEventListener('click', function() {
+    document.getElementById('defaultWaterMethod').value = 'per_resident';
+    document.getElementById('defaultElectricityMethod').value = 'per_unit';
+    document.getElementById('defaultGasMethod').value = 'per_area';
+    document.getElementById('defaultElevatorMethod').value = 'per_unit';
+    document.getElementById('defaultCleaningMethod').value = 'per_unit';
+    document.getElementById('defaultMiscMethod').value = 'per_unit';
+});
+
+// ==================== مدیریت پرداختی‌ها ====================
             document.getElementById('exportAllPaymentsCSVBtn').addEventListener('click', exportAllPaymentsCSV);
             document.getElementById('exportPaymentsReportPDFBtn').addEventListener('click', function() {
                 showNotification('برای چاپ یا ذخیره PDF، پنجره چاپ مرورگر باز خواهد شد. در پنجره چاپ، گزینه "ذخیره به PDF" را انتخاب کنید.', 'info');
