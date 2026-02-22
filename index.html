@@ -2937,7 +2937,7 @@ if ('serviceWorker' in navigator) {
                 // ✅ بخش جدید - تشخیص آپدیت
                 reg.addEventListener('updatefound', () => {
                     const newWorker = reg.installing;
-                    console.log('🔄 نسخه جدید پیدا شد');
+                    console.log(' نسخه جدید پیدا شد');
                     
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
@@ -3033,7 +3033,7 @@ function showUpdateNotification() {
                 font-family: Vazir, sans-serif;
                 font-size: 0.9rem;
                 flex: 1;
-            ">🔄 بروزرسانی now</button>
+            "> بروزرسانی now</button>
             <button onclick="this.parentElement.parentElement.remove()" style="
                 background: transparent;
                 color: white;
