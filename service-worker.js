@@ -1,5 +1,5 @@
 // service-worker.js - برای نرم‌افزار مدیریت ساختمان
-const CACHE_NAME = 'building-management-v1.0';
+const CACHE_NAME = 'building-management-' + Date.now();
 
 const urlsToCache = [
   './',
@@ -21,7 +21,6 @@ self.addEventListener('install', event => {
       })
       .then(() => {
         console.log('✅ نصب Service Worker کامل شد');
-        // ✅ فقط یک بار اینجا
         return self.skipWaiting();
       })
       .catch(error => {
@@ -46,7 +45,6 @@ self.addEventListener('activate', event => {
     })
     .then(() => {
       console.log('✅ کش‌های قدیمی پاک شدند');
-      // ✅ فقط یک بار اینجا
       return self.clients.claim();
     })
   );
