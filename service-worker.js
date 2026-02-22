@@ -1,5 +1,6 @@
 // service-worker.js - برای نرم‌افزار مدیریت ساختمان
-const CACHE_NAME = 'building-management-' + Date.now();
+
+const CACHE_NAME = 'building-management-' + new Date().getTime() + '-' + Math.random();
 
 const urlsToCache = [
   './',
